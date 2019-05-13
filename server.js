@@ -53,6 +53,11 @@ app.post("/api/shorturl/new",(req,res)=>{
                     .catch(err=>console.log(err))
                 })
             }
+            else{
+                res.statusCode = 200;
+                res.setHeader("Content-Type","application/json");
+                res.json({original_url: url.original_url,short_url:url.short_url});
+            }
         })
         .catch(err=>console.log(err))
     }
